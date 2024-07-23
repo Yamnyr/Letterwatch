@@ -1,13 +1,15 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "VidSrc Link Adder",
   "version": "1.0",
   "action": {
-    "default_popup": "hello.html",
     "default_icon": "letterwatch.png"
   },
   "description": "Adds a link to VidSrc on Letterboxd movie pages",
   "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
     "https://letterboxd.com/*"
   ],
   "content_scripts": [
