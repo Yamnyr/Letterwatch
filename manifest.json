@@ -1,21 +1,22 @@
 {
   "manifest_version": 3,
-  "name": "VidSrc Link Adder",
+  "name": "Letterwatch",
   "version": "1.0",
+  "description": "Adds VidSrc links to Letterboxd and TMDB",
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": [
+    "https://letterboxd.com/*",
+    "https://www.themoviedb.org/*"
+  ],
   "action": {
+    "default_popup": "popup.html",
     "default_icon": "letterwatch.png"
   },
-  "description": "Adds a link to VidSrc on Letterboxd movie pages",
-  "permissions": [
-    "activeTab"
-  ],
-  "host_permissions": [
-    "https://letterboxd.com/*"
-  ],
-  "content_scripts": [
-    {
-      "matches": ["https://letterboxd.com/film/*"],
-      "js": ["content.js"]
-    }
-  ]
+  "content_scripts": [{
+    "matches": [
+      "https://letterboxd.com/film/*",
+      "https://www.themoviedb.org/movie/*"
+    ],
+    "js": ["content.js"]
+  }]
 }
