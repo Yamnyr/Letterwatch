@@ -32,16 +32,15 @@ function addLink(actionsList, tmdbId, isTmdb = false) {
     const newLi = document.createElement('li');
     if (isTmdb) {
         newLi.className = 'tooltip use_tooltip';
-        newLi.setAttribute('title', 'Watch on VidSrc');
+        newLi.setAttribute('title', 'Watch');
         newLi.setAttribute('data-role', 'tooltip');
     }
 
     const newLink = document.createElement('a');
     newLink.href = `https://vidsrc.to/embed/movie/${tmdbId}`;
-    newLink.textContent = isTmdb ? '' : 'Watch on VidSrc';
+    newLink.textContent = isTmdb ? '' : 'Watch';
     newLink.target = '_blank';
     if (isTmdb) {
-        newLink.className = 'no_click';
         const span = document.createElement('span');
         span.className = 'glyphicons_v2 play white';
         newLink.appendChild(span);

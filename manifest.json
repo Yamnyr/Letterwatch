@@ -3,7 +3,11 @@
   "name": "Letterwatch",
   "version": "1.0",
   "description": "Adds VidSrc links to Letterboxd and TMDB",
-  "permissions": ["activeTab", "storage"],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs"
+  ],
   "host_permissions": [
     "https://letterboxd.com/*",
     "https://www.themoviedb.org/*"
