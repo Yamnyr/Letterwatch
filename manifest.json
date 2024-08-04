@@ -1,26 +1,30 @@
 {
   "manifest_version": 3,
   "name": "Letterwatch",
-  "version": "1.0",
-  "description": "Adds VidSrc links to Letterboxd and TMDB",
+  "version": "1.2",
+  "description": "Adds streaming links to Letterboxd and TMDB",
   "permissions": [
     "activeTab",
-    "storage",
-    "tabs"
+    "storage"
   ],
   "host_permissions": [
     "https://letterboxd.com/*",
-    "https://www.themoviedb.org/*"
+    "https://www.themoviedb.org/*",
+    "https://vidsrc.to/*"
   ],
   "action": {
-    "default_popup": "popup.html",
-    "default_icon": "letterwatch.png"
+    "default_popup": "popup/popup.html",
+    "default_icon": "assets/favicon-l.png"
   },
   "content_scripts": [{
     "matches": [
-      "https://letterboxd.com/film/*",
+      "https://letterboxd.com/*",
       "https://www.themoviedb.org/movie/*"
     ],
     "js": ["content.js"]
+  }],
+  "web_accessible_resources": [{
+    "resources": ["playerPage/player.html"],
+    "matches": ["https://letterboxd.com/*", "https://www.themoviedb.org/*"]
   }]
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="popup.css">
+        <title>Letterwatch Options</title>
+    </head>
+
+    <body>
+
+    <header>
+        <div class="logo-container">
+            <img src="../assets/letterwatch-mg.png" alt="Logo" class="logo">
+        </div>
+    </header>
+    <h2>Choose options:</h2>
+    <label>
+        <input type="checkbox" id="letterboxd">
+        <span class="checkbox-custom"></span>
+        Add watch button on Letterboxd
+    </label>
+    <label>
+        <input type="checkbox" id="tmdb">
+        <span class="checkbox-custom"></span>
+        Add watch button on TMDB
+    </label>
+    <label class="tooltip-label">
+        <input type="checkbox" id="wideLayout">
+        <span class="checkbox-custom"></span>
+        Add movie player on letterbox page
+        <span class="tooltip-text">you must disable your ad blocker</span>
+    </label>
+
+    <label>
+        <input type="checkbox" id="removeDivs">
+        <span class="checkbox-custom"></span>
+        Remove Ads
+    </label>
+    <button id="save">Save</button>
+        <div class="made-by">Made by Yamnyr</div>
+    <script src="popup.js"></script>
+    </body>
+</html>

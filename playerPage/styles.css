@@ -1,0 +1,52 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Graphik-Regular-Web, Arial, sans-serif;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    background: #14181c url(../assets/content-bg.webp) 0 -1px repeat-x;
+
+}
+
+header {
+    padding: 20px;
+    background-image: linear-gradient(to bottom, #14181c 0px, #14181c 250px, #2c3440 251px);
+    text-align: center;
+}
+
+header .logo {
+    width: 400px;
+    height: auto;
+}
+
+.logo-container{
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+iframe {
+    width: 50%;
+    aspect-ratio: 16/9;
+    border: none;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #1f2428;
+    text-align: center;
+    padding: 10px;
+}
+
+.made-by {
+    font-size: 12px;
+    color: #9ab;
+}
