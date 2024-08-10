@@ -10,7 +10,11 @@
   "host_permissions": [
     "https://letterboxd.com/*",
     "https://www.themoviedb.org/*",
-    "https://vidsrc.to/*"
+    "https://vidsrc.to/*",
+    "https://vidsrc.in/*",
+    "https://vidsrc.pro/*",
+    "https://vidsrc.net/*",
+    "https://vidsrc.me/*"
   ],
   "action": {
     "default_popup": "popup/popup.html",
@@ -21,7 +25,7 @@
       "https://letterboxd.com/*",
       "https://www.themoviedb.org/movie/*"
     ],
-    "js": ["content.js"]
+    "js": ["background.js", "button.js", "iframe.js", "remove-ads.js"]
   }],
   "web_accessible_resources": [{
     "resources": ["playerPage/player.html"],

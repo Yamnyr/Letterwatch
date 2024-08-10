@@ -5,9 +5,11 @@ document.addEventListener('DOMContentLoaded', function() {
     if (tmdbId) {
         const iframe = document.getElementById('vidSrcPlayer');
         // iframe.src = `https://vidsrc.to/embed/movie/${tmdbId}`;
-        iframe.src = ` https://vidsrc.in/embed/movie?tmdb=${tmdbId}`;
-
-        console.log(iframe.src)
+        // iframe.src = `https://vidsrc.pro/embed/movie/${tmdbId}`;
+        // iframe.src = `https://moviesapi.club/${tmdbId}`;
+        iframe.src = `https://vidsrc.net/embed/movie/${tmdbId}`;
+        iframe.allowFullscreen = true;
+        iframe.referrerPolicy = "origin";
     } else {
         document.body.innerHTML = '<p>Erreur: ID du film non trouvé.</p>';
     }
