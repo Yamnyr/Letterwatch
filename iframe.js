@@ -1,109 +1,71 @@
 function applyCssModifications() {
-    const style = document.createElement('style');
-    style.textContent = `
-        div.content-wrap {
-            width: 1200px !important;
-        }
-        div.col-17 {
-            width: 920px !important;
-        }
-        section.section.col-10.col-main {
-            width: 640px !important;
-        }
-        .film-popular-review .film-detail-content {
-            width: 820px!important;
-        }        
-        .iframe-container {
-            margin-bottom: 25px;
-            position: relative;
-        }
-        .iframe-container iframe {
-            width: 100%;
-            height: 400px;
-            border: 1px solid #303840;
-            border-radius: 5px;
-        }
-        .iframe-controls {
-            margin-top: 10px;
-            display: flex;
-            justify-content: space-between; /* Distribute space between items */
-            align-items: center; /* Vertically center items */
-        }
-        .iframe-controls .btn-group {
-            display: flex;
-            gap: 5px;
-        }
-        .iframe-controls button {
-            border: none;
-            border-radius: 3px;
-            margin: 0;
-            padding: 6px 12px;
-            background: #445566;
-            box-shadow: inset 0 1px 0 hsla(0, 0%, 100%, 0.3);
-            color: #8a9baa;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        .iframe-controls button:hover {
-            color: white;
-        }
-    `;
-    document.head.appendChild(style);
+    // Check if the iframe container already exists
+    if (document.querySelector('.iframe-container')) return;
 
     const mainSection = document.querySelector('section.section.col-10.col-main');
-    if (mainSection) {
-        let tmdbId;
-        if (window.location.hostname.includes('letterboxd.com')) {
-            tmdbId = document.body.getAttribute('data-tmdb-id');
-        } else if (window.location.hostname.includes('themoviedb.org')) {
-            tmdbId = extractTmdbId(window.location.href);
-        }
+    if (!mainSection) return;
 
-        if (tmdbId) {
-            const iframeContainer = document.createElement('div');
-            iframeContainer.className = 'iframe-container';
-
-            const iframe = document.createElement('iframe');
-            iframe.src = `https://vidsrc.pro/embed/movie/${tmdbId}`;
-            iframe.allowFullscreen = true;
-            iframe.referrerPolicy = "origin";
-
-            const controls = document.createElement('div');
-            controls.className = 'iframe-controls';
-
-            const btnGroup = document.createElement('div');
-            btnGroup.className = 'btn-group';
-
-            const btnVidSrcPro = document.createElement('button');
-            btnVidSrcPro.textContent = 'Lecteur 1';
-            btnVidSrcPro.onclick = () => {
-                iframe.src = `https://vidsrc.pro/embed/movie/${tmdbId}`;
-            };
-
-            const btnVidSrcNet = document.createElement('button');
-            btnVidSrcNet.textContent = 'Lecteur 2';
-            btnVidSrcNet.onclick = () => {
-                iframe.src = `https://vidsrc.net/embed/movie/${tmdbId}`;
-            };
-
-            const btnPlayerPage = document.createElement('button');
-            btnPlayerPage.textContent = 'Player Page';
-            btnPlayerPage.onclick = () => {
-                window.open(chrome.runtime.getURL(`playerPage/player.html?id=${tmdbId}`), '_blank');
-            };
-
-            btnGroup.appendChild(btnVidSrcPro);
-            btnGroup.appendChild(btnVidSrcNet);
-
-            controls.appendChild(btnGroup);
-            controls.appendChild(btnPlayerPage);
-
-            iframeContainer.appendChild(iframe);
-            iframeContainer.appendChild(controls);
-
-            mainSection.insertBefore(iframeContainer, mainSection.firstChild);
-        }
+    let tmdbId;
+    if (window.location.hostname.includes('letterboxd.com')) {
+        tmdbId = document.body.getAttribute('data-tmdb-id');
+    } else if (window.location.hostname.includes('themoviedb.org')) {
+        tmdbId = extractTmdbId(window.location.href);
     }
+
+    if (!tmdbId) return;
+
+    const iframeContainer = document.createElement('div');
+    iframeContainer.className = 'iframe-container';
+
+    const iframe = document.createElement('iframe');
+    iframe.src = `https://vidsrc.pro/embed/movie/${tmdbId}?&theme=00e054&player=new`;
+    iframe.allowFullscreen = true;
+    iframe.referrerPolicy = "origin";
+
+    const players = [
+        { name: 'Lecteur 1', url: `https://vidsrc.pro/embed/movie/${tmdbId}` },
+        { name: 'Lecteur 2', url: `https://vidsrc.net/embed/movie/${tmdbId}`, tooltip: 'You must disable your ad blocker' },
+        { name: 'Lecteur 3', url: `https://vidsrc.cc/v2/embed/movie/${tmdbId}` },
+        { name: 'Lecteur 4', url: `https://moviesapi.club/movie/${tmdbId}` },
+        { name: 'Lecteur 5', url: `https://www.2embed.cc/embed/${tmdbId}` },
+        { name: 'Lecteur fr', url: `https://frembed.pro/api/film.php?id=${tmdbId}` }
+    ];
+
+    const btnGroup = document.createElement('div');
+    btnGroup.className = 'btn-group';
+
+    players.forEach(player => {
+        const button = document.createElement('button');
+        button.textContent = player.name;
+        button.onclick = () => { iframe.src = player.url; };
+
+        if (player.tooltip) {
+            button.classList.add('tooltip-label');
+            const tooltipText = document.createElement('span');
+            tooltipText.className = 'tooltip-text';
+            tooltipText.textContent = player.tooltip;
+            button.appendChild(tooltipText);
+        }
+
+        btnGroup.appendChild(button);
+    });
+
+    const controls = document.createElement('div');
+    controls.className = 'iframe-controls';
+
+    const btnPlayerPage = document.createElement('button');
+    btnPlayerPage.textContent = 'Player Page';
+    btnPlayerPage.onclick = () => {
+        window.open(chrome.runtime.getURL(`playerPage/player.html?id=${tmdbId}`), '_blank');
+    };
+
+    controls.appendChild(btnGroup);
+    controls.appendChild(btnPlayerPage);
+
+    iframeContainer.appendChild(iframe);
+    iframeContainer.appendChild(controls);
+
+    mainSection.insertBefore(iframeContainer, mainSection.firstChild);
 }
 
 function extractTmdbId(url) {

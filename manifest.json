@@ -25,7 +25,7 @@
       "https://letterboxd.com/*",
       "https://www.themoviedb.org/movie/*"
     ],
-    "js": ["background.js", "button.js", "iframe.js", "remove-ads.js"]
+    "js": ["background.js", "button.js", "styles.js", "iframe.js", "remove-ads.js"]
   }],
   "web_accessible_resources": [{
     "resources": ["playerPage/player.html"],

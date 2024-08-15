@@ -15,6 +15,7 @@ chrome.storage.sync.get(['letterboxd', 'tmdb', 'wideLayout', 'removeDivs'], func
     if (host.includes('letterboxd.com') && items.wideLayout) {
         if (path.startsWith('/film/')) {
             applyCssModifications();
+            injectCss();
         }
     }
 });
