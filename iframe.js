@@ -1,5 +1,4 @@
 function applyCssModifications() {
-    // Check if the iframe container already exists
     if (document.querySelector('.iframe-container')) return;
 
     const mainSection = document.querySelector('section.section.col-10.col-main');

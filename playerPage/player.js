@@ -29,8 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     iframe.src = player.url;
                 };
             } else {
-                button.style.backgroundColor = '#777'; // Grey out the disabled buttons
-                button.style.cursor = 'not-allowed'; // Change the cursor to indicate non-clickable
+                button.style.backgroundColor = '#777';
+                button.style.cursor = 'not-allowed';
             }
 
             btnGroup.appendChild(button);

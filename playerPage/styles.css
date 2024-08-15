@@ -56,8 +56,8 @@ footer {
 .iframe-controls {
     margin-top: 10px;
     display: flex;
-    justify-content: space-between; /* Distribute space between items */
-    align-items: center; /* Vertically center items */
+    justify-content: space-between;
+    align-items: center;
 }
 .iframe-controls .btn-group {
     display: flex;
@@ -79,7 +79,7 @@ footer {
 
 main {
     display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center;    /* Center the content horizontally */
-    gap: 10px;              /* Add space between the video player and the buttons */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }

@@ -8,13 +8,7 @@
     "storage"
   ],
   "host_permissions": [
-    "https://letterboxd.com/*",
-    "https://www.themoviedb.org/*",
-    "https://vidsrc.to/*",
-    "https://vidsrc.in/*",
-    "https://vidsrc.pro/*",
-    "https://vidsrc.net/*",
-    "https://vidsrc.me/*"
+
   ],
   "action": {
     "default_popup": "popup/popup.html",
