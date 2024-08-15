@@ -28,6 +28,7 @@ Once the extension is installed:
 
 - You can access the popup to configure the extension.
 
+![Letterwatch Logo](assets/popup.png)
 ---
 
 Thank you for using Letterwatch!
