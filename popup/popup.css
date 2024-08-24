@@ -8,10 +8,12 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 h2 {
     font-size: 18px;
     margin: 0 0 15px 0;
 }
+
 label {
     display: flex;
     align-items: center;
@@ -19,9 +21,11 @@ label {
     cursor: pointer;
     letter-spacing: 1px;
 }
+
 input[type="checkbox"] {
     display: none;
 }
+
 .checkbox-custom {
     width: 18px;
     height: 18px;
@@ -30,6 +34,7 @@ input[type="checkbox"] {
     margin-right: 10px;
     position: relative;
 }
+
 input[type="checkbox"]:checked + .checkbox-custom::after {
     content: '\2714';
     position: absolute;
@@ -39,6 +44,7 @@ input[type="checkbox"]:checked + .checkbox-custom::after {
     color: #00ac1c;
     font-size: 14px;
 }
+
 button {
     background-color: #00ac1c;
     border: none;
@@ -51,17 +57,19 @@ button {
     cursor: pointer;
     border-radius: 4px;
 }
+
 button:hover {
     background-color: #009d1a;
 }
-.made-by {
+
+a.made-by {
     margin-top: auto;
     text-align: center;
     font-size: 12px;
-    color: #9ab;
+    color: #8a9baa;
     padding-top: 15px;
+    text-decoration: none;
 }
-
 
 header .logo {
     width: 200px;
@@ -72,7 +80,6 @@ header .logo {
 header{
     text-align: center;
 }
-
 
  .tooltip-label {
      position: relative;

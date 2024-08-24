@@ -12,14 +12,14 @@
   ],
   "action": {
     "default_popup": "popup/popup.html",
-    "default_icon": "assets/favicon-l.png"
+    "default_icon": "assets/icon/favicon-l.png"
   },
   "content_scripts": [{
     "matches": [
       "https://letterboxd.com/*",
       "https://www.themoviedb.org/movie/*"
     ],
-    "js": ["background.js", "button.js", "styles.js", "iframe.js", "remove-ads.js"]
+    "js": ["main.js", "content/button.js", "content/styles.js", "content/iframe.js", "content/remove-ads.js"]
   }],
   "web_accessible_resources": [{
     "resources": ["playerPage/player.html"],
