@@ -11,11 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const btnGroup = document.querySelector('.btn-group');
 
         const players = [
-            { name: 'Lecteur 1', url: `https://vidsrc.pro/embed/movie/${tmdbId}`, disabled: true },
-            { name: 'Lecteur 2', url: `https://vidsrc.net/embed/movie/${tmdbId}`, disabled: false },
-            { name: 'Lecteur 3', url: `https://vidsrc.cc/v2/embed/movie/${tmdbId}`, disabled: false },
-            { name: 'Lecteur 4', url: `https://moviesapi.club/movie/${tmdbId}`, disabled: true },
-            { name: 'Lecteur 5', url: `https://www.2embed.cc/embed/${tmdbId}`, disabled: false },
+            { name: 'Lecteur 1', url: `https://vidsrc.pro/embed/movie/${tmdbId}`, disabled: false },
+            { name: 'Lecteur 2', url: `https://multiembed.mov/directstream.php?video_id=${tmdbId}&tmdb=1`, disabled: true },
+            { name: 'Lecteur 3', url: `https://vidsrc.net/embed/movie/${tmdbId}`, disabled: false },
+            { name: 'Lecteur 4', url: `https://vidsrc.cc/v2/embed/movie/${tmdbId}`, disabled: false },
+            // { name: 'Lecteur 4', url: `https://moviesapi.club/movie/${tmdbId}`, disabled: true },
+            // { name: 'Lecteur 5', url: `https://www.2embed.cc/embed/${tmdbId}`, disabled: true },
             { name: 'Lecteur fr', url: `https://frembed.pro/api/film.php?id=${tmdbId}`, disabled: false }
         ];
 

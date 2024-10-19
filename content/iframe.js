@@ -23,11 +23,12 @@ function applyCssModifications() {
 
     const players = [
         { name: 'Lecteur 1', url: `https://vidsrc.pro/embed/movie/${tmdbId}?&theme=00e054&player=new` },
-        { name: 'Lecteur 2', url: `https://vidsrc.pro/embed/movie/${tmdbId}?&theme=00e054` },
+        { name: 'Lecteur 2', url: `https://multiembed.mov/directstream.php?video_id=${tmdbId}&tmdb=1` },
         { name: 'Lecteur 3', url: `https://vidsrc.net/embed/movie/${tmdbId}`, tooltip: 'You must disable your ad blocker' },
-        { name: 'Lecteur 4', url: `https://player.autoembed.cc/embed/movie/${tmdbId}` },
-        { name: 'Lecteur 5', url: `https://vidsrc.cc/v2/embed/movie/${tmdbId}` },
+        { name: 'Lecteur 4', url: `https://vidsrc.cc/v2/embed/movie/${tmdbId}` },
 
+        // { name: 'Lecteur 2', url: `https://vidsrc.pro/embed/movie/${tmdbId}?&theme=00e054` },
+        // { name: 'Lecteur 4', url: `https://player.autoembed.cc/embed/movie/${tmdbId}` },
         // { name: 'Lecteur 5', url: `https://moviesapi.club/movie/${tmdbId}` },
         // { name: 'Lecteur 5', url: `https://www.2embed.cc/embed/${tmdbId}` },
         { name: 'Lecteur fr', url: `https://frembed.pro/api/film.php?id=${tmdbId}` }
