@@ -35,7 +35,7 @@ main {
 }
 
 iframe {
-    width: 60%;
+    width: 55%;
     aspect-ratio: 16/9;
     border: none;
     border-radius: 5px;
@@ -75,7 +75,12 @@ a.made-by{
     color: #8a9baa;
     cursor: pointer;
     font-weight: bold;
+    transition-duration: 0.3s;
 }
 .iframe-controls button:hover {
     color: white;
+}
+.btn-group button.active {
+    color: white !important;
+    background-color: #00ac1c;
 }

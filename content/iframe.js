@@ -23,24 +23,37 @@ function applyCssModifications() {
 
     const players = [
         { name: 'Lecteur 1', url: `https://vidsrc.pro/embed/movie/${tmdbId}?&theme=00e054&player=new` },
+        // { name: 'Lecteur 5', url: `https://https://embed.su/embed/movie/${tmdbId}`},
         { name: 'Lecteur 2', url: `https://multiembed.mov/directstream.php?video_id=${tmdbId}&tmdb=1` },
+        // { name: 'Lecteur 3', url: `https://www.vidbinge.com/media/tmdb-movie-${tmdbId}`},
         { name: 'Lecteur 3', url: `https://vidsrc.net/embed/movie/${tmdbId}`, tooltip: 'You must disable your ad blocker' },
         { name: 'Lecteur 4', url: `https://vidsrc.cc/v2/embed/movie/${tmdbId}` },
-
-        // { name: 'Lecteur 2', url: `https://vidsrc.pro/embed/movie/${tmdbId}?&theme=00e054` },
-        // { name: 'Lecteur 4', url: `https://player.autoembed.cc/embed/movie/${tmdbId}` },
-        // { name: 'Lecteur 5', url: `https://moviesapi.club/movie/${tmdbId}` },
-        // { name: 'Lecteur 5', url: `https://www.2embed.cc/embed/${tmdbId}` },
         { name: 'Lecteur fr', url: `https://frembed.pro/api/film.php?id=${tmdbId}` }
     ];
 
     const btnGroup = document.createElement('div');
     btnGroup.className = 'btn-group';
 
-    players.forEach(player => {
+    let activeButton = null;
+
+    players.forEach((player, index) => {
         const button = document.createElement('button');
         button.textContent = player.name;
-        button.onclick = () => { iframe.src = player.url; };
+
+        if (index === 0) {
+            button.classList.add('active');
+            activeButton = button;
+        }
+
+        button.onclick = () => {
+            if (activeButton) {
+                activeButton.classList.remove('active');
+            }
+            button.classList.add('active');
+            activeButton = button;
+
+            iframe.src = player.url;
+        };
 
         if (player.tooltip) {
             button.classList.add('tooltip-label');

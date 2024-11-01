@@ -42,6 +42,7 @@ function injectCss() {
             color: #8a9baa;
             cursor: pointer;
             font-weight: bold;
+            transition-duration: 0.3s;
         }
         .iframe-controls button:hover {
             color: white;
@@ -70,6 +71,10 @@ function injectCss() {
         .tooltip-label:hover .tooltip-text {
             visibility: visible;
             opacity: 1;
+        }
+        .btn-group button.active {
+            color: white !important;
+            background-color: #00ac1c;
         }
     `;
     document.head.appendChild(style);

@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (tmdbId) {
         const iframe = document.getElementById('vidSrcPlayer');
-        iframe.src = `https://vidsrc.net/embed/movie/${tmdbId}`;
+        iframe.src = `https://vidsrc.pro/embed/movie/${tmdbId}`;
         iframe.allowFullscreen = true;
         iframe.referrerPolicy = "origin";
 
@@ -12,21 +12,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const players = [
             { name: 'Lecteur 1', url: `https://vidsrc.pro/embed/movie/${tmdbId}`, disabled: false },
+            // { name: 'Lecteur 1', url: `https://https://embed.su/embed/movie/${tmdbId}`, disabled: false },
             { name: 'Lecteur 2', url: `https://multiembed.mov/directstream.php?video_id=${tmdbId}&tmdb=1`, disabled: true },
+            // { name: 'Lecteur 3', url: `https://www.vidbinge.com/media/tmdb-movie-${tmdbId}`, disabled: true },
             { name: 'Lecteur 3', url: `https://vidsrc.net/embed/movie/${tmdbId}`, disabled: false },
             { name: 'Lecteur 4', url: `https://vidsrc.cc/v2/embed/movie/${tmdbId}`, disabled: false },
-            // { name: 'Lecteur 4', url: `https://moviesapi.club/movie/${tmdbId}`, disabled: true },
-            // { name: 'Lecteur 5', url: `https://www.2embed.cc/embed/${tmdbId}`, disabled: true },
             { name: 'Lecteur fr', url: `https://frembed.pro/api/film.php?id=${tmdbId}`, disabled: false }
         ];
 
-        players.forEach(player => {
+        // Variable pour stocker le bouton actif
+        let activeButton = null;
+
+        players.forEach((player, index) => {
             const button = document.createElement('button');
             button.textContent = player.name;
             button.disabled = player.disabled;
 
+            // Activer le premier bouton non désactivé par défaut
+            if (!player.disabled && !activeButton) {
+                button.classList.add('active');
+                activeButton = button;
+            }
+
             if (!player.disabled) {
                 button.onclick = () => {
+                    // Retirer la classe active de l'ancien bouton
+                    if (activeButton) {
+                        activeButton.classList.remove('active');
+                    }
+                    // Ajouter la classe active au nouveau bouton
+                    button.classList.add('active');
+                    activeButton = button;
+
+                    // Changer la source de l'iframe
                     iframe.src = player.url;
                 };
             } else {
