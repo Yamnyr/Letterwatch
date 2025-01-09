@@ -22,13 +22,24 @@ function applyCssModifications() {
     iframe.referrerPolicy = "origin";
 
     const players = [
-        { name: 'Lecteur 1', url: `https://vidsrc.pro/embed/movie/${tmdbId}?&theme=00e054&player=new` },
-        // { name: 'Lecteur 5', url: `https://https://embed.su/embed/movie/${tmdbId}`},
-        { name: 'Lecteur 2', url: `https://multiembed.mov/directstream.php?video_id=${tmdbId}&tmdb=1` },
-        // { name: 'Lecteur 3', url: `https://www.vidbinge.com/media/tmdb-movie-${tmdbId}`},
-        { name: 'Lecteur 3', url: `https://vidsrc.net/embed/movie/${tmdbId}`, tooltip: 'You must disable your ad blocker' },
-        { name: 'Lecteur 4', url: `https://vidsrc.cc/v2/embed/movie/${tmdbId}` },
-        { name: 'Lecteur fr', url: `https://frembed.pro/api/film.php?id=${tmdbId}` }
+        // { name: 'Lecteur 1', url: `https://vidsrc.pro/embed/movie/${tmdbId}?&theme=00e054&player=new` },
+        //new from old ^:
+        { name: 'Lecteur 1', url: `https://embed.su/embed/movie/${tmdbId}` },
+
+        // { name: 'Lecteur 2', url: `https://multiembed.mov/directstream.php?video_id=${tmdbId}&tmdb=1&check=1` },
+        { name: 'Lecteur 2', url: `https://player.vidbinge.com/media/tmdb-movie-${tmdbId}`},
+
+        { name: 'Lecteur 3', url: `https://vidsrc.cc/v3/embed/movie/${tmdbId}`, tooltip: 'You must disable your ad blocker'},
+
+        // pub
+        // { name: 'Lecteur 3', url: `https://vidsrc.net/embed/movie/${tmdbId}`, tooltip: 'You must disable your ad blocker' },
+
+        //new sans pub:
+        { name: 'Lecteur 4', url: `https://vidsrc.icu/embed/movie/${tmdbId}`},// pas de pub mais scroll
+
+        { name: 'Lecteur 5', url: `https://vidlink.pro/movie/${tmdbId}?primaryColor=00e054&secondaryColor=00e054&iconColor=ffffff&icons=default&player=default&title=true&poster=true&autoplay=false&nextbutton=false`},//voir pour sous-titre
+        //bof:
+        // { name: 'Lecteur fr', url: `https://frembed.pro/api/film.php?id=${tmdbId}` }
     ];
 
     const btnGroup = document.createElement('div');
@@ -72,7 +83,7 @@ function applyCssModifications() {
     const btnPlayerPage = document.createElement('button');
     btnPlayerPage.textContent = 'Player Page';
     btnPlayerPage.onclick = () => {
-        window.open(chrome.runtime.getURL(`playerPage/player.html?id=${tmdbId}`), '_blank');
+        window.open(chrome.runtime.getURL(` ${tmdbId}`), '_blank');
     };
 
     controls.appendChild(btnGroup);
