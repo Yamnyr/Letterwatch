@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             { name: 'Lecteur 3', url: `https://vidsrc.net/embed/movie/${tmdbId}`, disabled: false },
             // { name: 'Lecteur 4', url: `https://vidsrc.cc/v2/embed/movie/${tmdbId}`, disabled: false },
             { name: 'Lecteur 4', url: `https://vidsrc.cc/v3/embed/movie/${tmdbId}`, disabled: false },
+            { name: 'Lecteur 5', url: `https://vidlink.pro/movie/${tmdbId}`, disabled: false },
             // { name: 'Lecteur fr', url: `https://frembed.pro/api/film.php?id=${tmdbId}`, disabled: false }
         ];
 

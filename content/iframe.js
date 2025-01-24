@@ -17,7 +17,8 @@ function applyCssModifications() {
     iframeContainer.className = 'iframe-container';
 
     const iframe = document.createElement('iframe');
-    iframe.src = `https://vidsrc.pro/embed/movie/${tmdbId}?&theme=00e054&player=new`;
+    iframe.src = `https://embed.su/embed/movie/${tmdbId}?&theme=00e054&player=new`;
+    // iframe.src = `https://player.vidbinge.com/media/tmdb-tv-156933`;
     iframe.allowFullscreen = true;
     iframe.referrerPolicy = "origin";
 
@@ -83,7 +84,7 @@ function applyCssModifications() {
     const btnPlayerPage = document.createElement('button');
     btnPlayerPage.textContent = 'Player Page';
     btnPlayerPage.onclick = () => {
-        window.open(chrome.runtime.getURL(` ${tmdbId}`), '_blank');
+        window.open(chrome.runtime.getURL(`playerPage/player.html?id=${tmdbId}`), '_blank');
     };
 
     controls.appendChild(btnGroup);
