@@ -17,30 +17,22 @@ function applyCssModifications() {
     iframeContainer.className = 'iframe-container';
 
     const iframe = document.createElement('iframe');
-    iframe.src = `https://embed.su/embed/movie/${tmdbId}?&theme=00e054&player=new`;
-    // iframe.src = `https://player.vidbinge.com/media/tmdb-tv-156933`;
+    iframe.src = `https://iframe.pstream.org/embed/tmdb-movie-${tmdbId}?theme=green&logo=false&language-order=fr,en,hi,de,nl,pt`;
     iframe.allowFullscreen = true;
     iframe.referrerPolicy = "origin";
 
     const players = [
-        // { name: 'Lecteur 1', url: `https://vidsrc.pro/embed/movie/${tmdbId}?&theme=00e054&player=new` },
-        //new from old ^:
-        { name: 'Lecteur 1', url: `https://embed.su/embed/movie/${tmdbId}` },
 
-        // { name: 'Lecteur 2', url: `https://multiembed.mov/directstream.php?video_id=${tmdbId}&tmdb=1&check=1` },
-        { name: 'Lecteur 2', url: `https://player.vidbinge.com/media/tmdb-movie-${tmdbId}`},
+            { name: 'Lecteur 1', url: `https://iframe.pstream.org/embed/tmdb-movie-${tmdbId}?theme=green&logo=false&language-order=fr,en,hi,de,nl,pt`},
+        { name: 'Lecteur 2', url: `https://embed.su/embed/movie/${tmdbId}` },
 
-        { name: 'Lecteur 3', url: `https://vidsrc.cc/v3/embed/movie/${tmdbId}`, tooltip: 'You must disable your ad blocker'},
+        // { name: 'Lecteur 2', url: `https://vidplay.fmovies0.cc/embed/movie/${tmdbId}`},
 
-        // pub
-        // { name: 'Lecteur 3', url: `https://vidsrc.net/embed/movie/${tmdbId}`, tooltip: 'You must disable your ad blocker' },
+            { name: 'Lecteur 3', url: `https://vidsrc.cc/v3/embed/movie/${tmdbId}`, tooltip: 'You must disable your ad blocker'},
 
-        //new sans pub:
-        { name: 'Lecteur 4', url: `https://vidsrc.icu/embed/movie/${tmdbId}`},// pas de pub mais scroll
+            { name: 'Lecteur 4', url: `https://vidsrc.icu/embed/movie/${tmdbId}`},
 
-        { name: 'Lecteur 5', url: `https://vidlink.pro/movie/${tmdbId}?primaryColor=00e054&secondaryColor=00e054&iconColor=ffffff&icons=default&player=default&title=true&poster=true&autoplay=false&nextbutton=false`},//voir pour sous-titre
-        //bof:
-        // { name: 'Lecteur fr', url: `https://frembed.pro/api/film.php?id=${tmdbId}` }
+            { name: 'Lecteur 5', url: `https://vidlink.pro/movie/${tmdbId}?primaryColor=00e054&secondaryColor=00e054&iconColor=ffffff&icons=default&player=default&title=true&poster=true&autoplay=false&nextbutton=false&sub_label=french`},
     ];
 
     const btnGroup = document.createElement('div');
