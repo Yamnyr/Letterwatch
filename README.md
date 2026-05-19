@@ -22,13 +22,24 @@ Made by **Yamnyr**
     - Enable **Developer mode**.
     - Drag the extracted folder into the extensions page.
 
-## Usage
+## Previews
 
-Once the extension is installed:
+Here is a preview of the extension in action:
 
-- You can access the popup to configure the extension.
+### Extension Popup
+Quickly configure your streaming sources, custom layouts, and ad-blocking features:
+![Extension Popup](assets/popup.png)
 
-![Letterwatch Logo](assets/popup.png)
+### Integrated Player (Intégration du lecteur)
+Seamlessly integrates the player directly into the page (e.g. Serializd or Letterboxd):
+![Integrated Player](assets/lecteur.png)
+
+### Standalone Player Page (Lecture à part)
+A dedicated, full-width distraction-free player page with multiple sources to choose from:
+![Standalone Player Page](assets/playerpage.png)
+
+
 ---
 
 Thank you for using Letterwatch!
+
