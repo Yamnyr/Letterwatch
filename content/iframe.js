@@ -17,22 +17,18 @@ function applyCssModifications() {
     iframeContainer.className = 'iframe-container';
 
     const iframe = document.createElement('iframe');
-    iframe.src = `https://iframe.pstream.org/embed/tmdb-movie-${tmdbId}?theme=green&logo=false&language-order=fr,en,hi,de,nl,pt`;
+    iframe.src = `https://vidsrc.cc/v3/embed/movie/${tmdbId}`;
     iframe.allowFullscreen = true;
     iframe.referrerPolicy = "origin";
 
     const players = [
-
-            { name: 'Lecteur 1', url: `https://iframe.pstream.org/embed/tmdb-movie-${tmdbId}?theme=green&logo=false&language-order=fr,en,hi,de,nl,pt`},
-        { name: 'Lecteur 2', url: `https://embed.su/embed/movie/${tmdbId}` },
-
-        // { name: 'Lecteur 2', url: `https://vidplay.fmovies0.cc/embed/movie/${tmdbId}`},
-
-            { name: 'Lecteur 3', url: `https://vidsrc.cc/v3/embed/movie/${tmdbId}`, tooltip: 'You must disable your ad blocker'},
-
-            { name: 'Lecteur 4', url: `https://vidsrc.icu/embed/movie/${tmdbId}`},
-
-            { name: 'Lecteur 5', url: `https://vidlink.pro/movie/${tmdbId}?primaryColor=00e054&secondaryColor=00e054&iconColor=ffffff&icons=default&player=default&title=true&poster=true&autoplay=false&nextbutton=false&sub_label=french`},
+        { name: 'Lecteur 1', url: `https://vidsrc.cc/v3/embed/movie/${tmdbId}` },
+        { name: 'Lecteur 2', url: `https://vidlink.pro/movie/${tmdbId}?primaryColor=00e054&secondaryColor=00e054&iconColor=ffffff&icons=default&player=default&title=true&poster=true&autoplay=false&nextbutton=false&sub_label=french` },
+        { name: 'Lecteur 3', url: `https://streamr.pages.dev/?modal=${tmdbId}&type=movie` },
+        { name: 'Lecteur 4', url: `https://www.kaitovault.com/watch/movie/${tmdbId}` },
+        { name: 'Lecteur 5', url: `https://www.m-zone.org/watch/movie/${tmdbId}` },
+        { name: 'Lecteur 6', url: `https://vidfast.me/movie/${tmdbId}?autoPlay=false&theme=E50914` },
+        { name: 'Lecteur 7', url: `https://moviepire.org/watch/${tmdbId}` }
     ];
 
     const btnGroup = document.createElement('div');
